@@ -1,6 +1,7 @@
 package cz.cvut.fel.cs.sin.dao;
 
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -12,6 +13,7 @@ import java.util.List;
 
 abstract class GenericDAO<T> implements DAO<T> {
 
+    @Inject
     private EntityManager em;
 
     private Class<T> type;
