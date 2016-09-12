@@ -5,6 +5,7 @@ import cz.cvut.fel.cs.sin.entity.Person;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.util.logging.Logger;
 
 @Stateless
 public class PersonRegistration {
@@ -12,10 +13,12 @@ public class PersonRegistration {
     @Inject
     private PersonDAO personDAO;
 
+    @Inject
+    private Logger logger;
+
     public void register(Person person) {
         personDAO.save(person);
-        // TODO: logging
-        // TODO: event triggering
+        logger.info("Created persion " + person.getFirstName() + " " + person.getLastName());
     }
 
 }

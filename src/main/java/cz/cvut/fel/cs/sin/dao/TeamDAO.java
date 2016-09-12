@@ -4,5 +4,4 @@ import cz.cvut.fel.cs.sin.entity.Team;
 
 
 public class TeamDAO extends GenericDAO<Team> {
-
 }

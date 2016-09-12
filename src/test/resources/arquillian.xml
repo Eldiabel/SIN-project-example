@@ -7,7 +7,7 @@
     <defaultProtocol type="Servlet 3.0" />
 
     <!-- Configuration to be used when the WildFly remote profile is active -->
-    <container qualifier="wildfly-remote">
+    <container qualifier="wildfly-remote" default="true">
         <configuration>
             <property name="managementAddress">127.0.0.1</property>
             <property name="managementPort">9990</property>
@@ -17,7 +17,7 @@
     </container>
 
     <!-- Configuration to be used when the WildFly managed profile is active -->
-    <container qualifier="wildfly-managed" default="true">
+    <container qualifier="wildfly-managed">
         <configuration>
             <property name="jbossHome">${jbossHome:target/wildfly-8.1.0.Final}</property>
         </configuration>
