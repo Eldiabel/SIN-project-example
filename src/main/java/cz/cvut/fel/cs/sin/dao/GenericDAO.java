@@ -14,7 +14,7 @@ import java.util.List;
 abstract class GenericDAO<T> implements DAO<T> {
 
     @Inject
-    private EntityManager em;
+    protected EntityManager em;
 
     private Class<T> type;
 
