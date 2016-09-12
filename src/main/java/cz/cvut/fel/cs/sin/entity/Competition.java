@@ -3,6 +3,7 @@ package cz.cvut.fel.cs.sin.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -20,6 +21,7 @@ public class Competition implements Serializable{
     private String name;
 
     @NotNull
+    @ManyToOne
     private Person president;
 
     public void setId(long id) {
@@ -55,5 +57,6 @@ public class Competition implements Serializable{
     }
 
     @NotNull
+    @ManyToOne
     private Person leader;
 }

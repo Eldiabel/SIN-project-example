@@ -21,6 +21,10 @@ public class Team implements Serializable{
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "team")
     private List<Person> persons;
 
+    public long getId() {
+        return id;
+    }
+
     public void setId(long id) {
         this.id = id;
     }
