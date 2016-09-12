@@ -6,6 +6,8 @@ import cz.cvut.fel.cs.sin.service.PersonRegistration;
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -19,6 +21,9 @@ public class PersonRegistrationController {
     @Named
     private Person newPerson;
 
+    @Inject
+    private FacesContext facesContext;
+
     @PostConstruct
     public void initNewPerson() {
         newPerson = new Person();
@@ -26,6 +31,8 @@ public class PersonRegistrationController {
 
     public void registerNewPerson() {
         personRegistration.register(newPerson);
+        FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Person registered!", "Registration successful");
+        facesContext.addMessage(null, m);
         initNewPerson();
     }
 
