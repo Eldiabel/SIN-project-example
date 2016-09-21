@@ -1,7 +1,7 @@
 package cz.cvut.fel.cs.sin.service;
 
 
-import cz.cvut.fel.cs.sin.dao.PersonDAO;
+import cz.cvut.fel.cs.sin.dao.PersonDAOImpl;
 import cz.cvut.fel.cs.sin.entity.Person;
 import cz.cvut.fel.cs.sin.util.Resource;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
@@ -15,7 +15,6 @@ import org.junit.Test;
 
 import javax.ejb.EJBException;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
 
 @RunWith(Arquillian.class)
 public class PersonRegistrationTest {
@@ -24,15 +23,15 @@ public class PersonRegistrationTest {
     public static WebArchive createDeployment() {
         return ShrinkWrap.create(WebArchive.class, "test.war")
                 .addPackage(Person.class.getPackage())
-                .addPackage(PersonDAO.class.getPackage())
-                .addClass(PersonRegistration.class)
+                .addPackage(PersonDAOImpl.class.getPackage())
+                .addClass(PersonRegistrationImpl.class)
                 .addClass(Resource.class)
                 .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
     @Inject
-    PersonRegistration personRegistration;
+    PersonRegistrationImpl personRegistration;
 
     @Test
     public void testRegister() {

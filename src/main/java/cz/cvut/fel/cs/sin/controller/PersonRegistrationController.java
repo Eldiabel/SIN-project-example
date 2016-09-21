@@ -1,7 +1,7 @@
 package cz.cvut.fel.cs.sin.controller;
 
 import cz.cvut.fel.cs.sin.entity.Person;
-import cz.cvut.fel.cs.sin.service.PersonRegistration;
+import cz.cvut.fel.cs.sin.service.PersonRegistrationImpl;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -15,7 +15,7 @@ import javax.inject.Named;
 public class PersonRegistrationController {
 
     @Inject
-    private PersonRegistration personRegistration;
+    private PersonRegistrationImpl personRegistration;
 
     @Produces
     @Named
