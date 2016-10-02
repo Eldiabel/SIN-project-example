@@ -1,7 +1,11 @@
 package cz.cvut.fel.cs.sin.service;
 
-/**
- * Created by filip on 21/09/16.
- */
+
+import cz.cvut.fel.cs.sin.entity.Person;
+
+
 public interface PersonRegistration {
+
+    public void register(Person person);
+
 }
