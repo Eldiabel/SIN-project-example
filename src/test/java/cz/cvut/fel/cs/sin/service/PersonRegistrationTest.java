@@ -24,14 +24,14 @@ public class PersonRegistrationTest {
         return ShrinkWrap.create(WebArchive.class, "test.war")
                 .addPackage(Person.class.getPackage())
                 .addPackage(PersonDAOImpl.class.getPackage())
-                .addClass(PersonRegistrationImpl.class)
+                .addPackage(PersonRegistrationImpl.class.getPackage())
                 .addClass(Resource.class)
                 .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
     @Inject
-    PersonRegistrationImpl personRegistration;
+    PersonRegistration personRegistration;
 
     @Test
     public void testRegister() {
